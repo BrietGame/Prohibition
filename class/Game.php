@@ -144,16 +144,16 @@ class Game
         // function to return pseudo and role
 
         while($nbTurn > 0){
-            echo " \n";
+            echo " <br>";
             echo $this->getAction();
-            echo "\n";
-            echo "Personne suspectée : \n";
+            echo "<br>";
+            echo "Personne suspectée : <br>";
             $selected = $this->playerSelected();
             foreach($selected as $player){
-                echo $player['PSEUDO'] ."\n";
+                echo $player['PSEUDO'] ."<br>";
             }
             echo "Object rechercher " . $this->getCards();
-            echo "\n";
+            echo "<br>";
             $nbTurn--;
             // $turn = $_GET['turn'];
             readline("Prochain tour ?");
