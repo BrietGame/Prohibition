@@ -28,5 +28,15 @@
         "6_players": "20",
         "7_players": "22",
         "8_players": "24"       
+    },
+    "pseudo": {
+        "player_1": "Ned Kelly",
+        "player_2": "Billy the Kid",
+        "player_3": "Black Bart",
+        "player_4": "Butch Cassidy",
+        "player_5": "Bonnie Parker",
+        "player_6": "John Dillinger",
+        "player_7": "Baby Face Nelson",
+        "player_8": "Al Capone"
     }
 }
