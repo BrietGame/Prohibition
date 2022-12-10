@@ -31,9 +31,6 @@ class Game
         $this->defineSnitchNb($json['nb_snitch']);
         $this->getSetPseudoAndRole($json['pseudo']);
         $this->setPointLimit($json['score']);
-
-        // TODO start the game
-        $this->startGame();
     }
     private function setPointLimit(array $rules_score)
     {
@@ -137,27 +134,71 @@ class Game
         return $selected;
 
     }
-    public function startGame()
+    public function startGame(int $nbTurn)
     {
         //TODO start the game
-        $nbTurn = 5;
         // function to return pseudo and role
-
-        while($nbTurn > 0){
-            echo " <br>";
-            echo $this->getAction();
-            echo "<br>";
-            echo "Personne suspectée : <br>";
-            $selected = $this->playerSelected();
-            foreach($selected as $player){
-                echo $player['PSEUDO'] ."<br>";
-            }
-            echo "Object rechercher " . $this->getCards();
-            echo "<br>";
-            $nbTurn--;
-            // $turn = $_GET['turn'];
-            readline("Prochain tour ?");
+        switch($nbTurn){
+            case '1':
+                $this->firstTurnOfGame();
+                break;
+            case '2':
+                $this->turnOfGame();
+                break;
+            case '3':
+                $this->turnOfGame();
+                break;
+            case '4':
+                $this->turnOfGame();
+                break;
+            case '5':
+                $this->turnOfGame();
+                echo "Fin de la partie";
+                break;
+            default: 
+                echo "GAME OVER";
+                break;
         }
-        echo "Fin de la partie";
+
+    }
+
+    private function firstTurnOfGame(){
+        echo "\n";
+        echo "Personne suspectée : \n";
+        $selected = $this->playerSelected();
+        foreach($selected as $player){
+            echo $player['PSEUDO'] ."\n";
+        }
+        echo "Object rechercher " . $this->getCards();
+        echo "\n";
+        $checked = $this->selectedPersonToBeCheck($selected);
+        echo "Personne à vérifier : \n";
+        foreach($checked as $player){
+            echo $player['PSEUDO'] ."\n";
+        }
+        
+    }
+    private function turnOfGame(){
+        echo " \n";
+        echo $this->getAction();
+       $this->firstTurnOfGame();
+    }
+
+    private function selectedPersonToBeCheck(array $selected){
+        $nbCheck = count($selected);
+        $check = $this->toolkit->algoRand(0, $nbCheck);
+        $toCheck = [];
+        for($i = 0; $i < $nbCheck; $i++){
+            $toCheck[] = $selected(array_rand($selected));
+        }
+        return $toCheck;
+    }
+    private function turnResult(){
+        $result = [
+            "selected" => $this->playerSelected(),
+            "action" => $this->getAction(),
+            "cards" => $this->getCards()
+        ];
+        return json_encode($result);
     }
 }
