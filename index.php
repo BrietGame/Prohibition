@@ -10,6 +10,7 @@ include_once './class/Game.php';
 // var_dump($game->pointLimit);
 // var_dump($game->getCards());
 // var_dump($game->nbSnitch);
+$nbPerson;
 if(!empty($_POST['nbPlayer'])){
     $nbPerson = $_POST['nbPlayer'];
     $game = new Game($nbPerson);
@@ -27,11 +28,21 @@ if(!empty($_POST['nbPlayer'])){
 </head>
 <body>
     <div id="playboard">
+        <?php 
+            if(!empty($nbPerson)){
+        ?>
         <form action="" id="nbPlayer" method="POST">
             <label for="nbPlayer">Nombre de joueur</label>
             <input type="number" name="nbPlayer" min="4" max="8">
             <input type="submit" value="Accepter">
         </form>
+        <?php }  else { ?>
+        <form action="" id="count" method="POST">
+            <label for="count">Tours nb</label>
+            <input type="number" name="count" min="1" max="5">
+            <input type="submit" value="Accepter">
+        </form>
+        <?php } ?>
     </div>
 <script src="./assets/js/main.js"></script>
 </body>

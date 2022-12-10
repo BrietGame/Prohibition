@@ -27,7 +27,20 @@ class ToolKit
         return $newArray;
     }
 
-
+    public static function algoRand(int $min, int $max): int
+    {
+        $middle = rand($min+1 , $max-1);
+        $rand = rand($min, $max);
+        $rand = ($rand + $middle) / 2;
+        $rand = round($rand);
+        if($rand > $max) {
+            $rand = $max;
+        }
+        if($rand < $min) {
+            $rand = $min;
+        }
+        return $rand;
+    }
 
 
 }
