@@ -1,0 +1,32 @@
+{
+    "app_role": "Marshall",
+    "role": {
+        "player": "Contrebandier",
+        "snitch": "Agent de la loi"
+    },
+    "cards": {
+        "wine_bottle": "Bouteille de vin",
+        "baril": "Baril",
+        "whiskey_bottle": "Bouteille de whisky"
+    },
+    "special_cards": {
+        "bonus": "Argent",
+        "maulus": "Bouteille cassée"
+    },
+    "actions":{
+        "switch_color": "Changement de couleur",
+        "switch_way": "Changement de sens",
+        "2_cards": "2 cartes lors de l'échange",
+        "pick_1_card": "Piocher 1 carte dans la main d'un joueur au choix",
+        "switch_1_card": "Echanger 1 carte avec un autre joueur au choix",
+        "switch_deck": "Echanger le deck avec un autre joueur au choix",
+        "ask_for_the_snitch": "Demander à un joueur s'il est l'agent de la loi"
+    },
+    "score":{
+        "4_players": "16",
+        "5_players": "18",
+        "6_players": "20",
+        "7_players": "22",
+        "8_players": "24"       
+    }
+}
