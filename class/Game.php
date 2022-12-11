@@ -31,6 +31,19 @@ class Game
         $this->getSetPseudoAndRole($json['pseudo']);
         $this->setPointLimit($json['score']);
     }
+
+    //recopie des data d'un json pour recréer l'objet selon certaines data
+    public function copyJSON(array $data)
+    {
+        $this->verifyNbPlayer($data["nbPlayer"]);
+        $this->appRole = $data["appRole"];
+        $this->actions = $data["actions"];
+        $this->cards = $data["cards"];
+        $this->nbSnitch = $data["nbSnitch"];
+        $this->players = $data["players"];
+        $this->pointLimit = $data["pointLimit"];
+    }
+    
     private function setPointLimit(array $rules_score)
     {
         $nb = $this->getNbPlayer();
@@ -71,9 +84,20 @@ class Game
     public function getSetPseudoAndRole(array $arrayPseudo)
     {
         $pseudo_list = [];
+        $index[] = [];
+        $index_impo[] = [];
+        for($i = 0; $i < $this->nbPlayer; $i++) {
+            $index[$i] = $i;
+        }
+        
+        for ($j = 0; $j < $this->nbSnitch; $j++){
+            $pos = rand(0, $this->nbPlayer);
+            $index_impo[$j] = $index[$pos];
+        }
+        
         for ($i = 0; $i < $this->nbPlayer; $i++) {
             $pseudo = array_shift($arrayPseudo);
-            $role = $this->nbSnitch > $i ? $this->role_name['snitch'] : $this->role_name['player'];
+            $role = in_array($i, $index_impo) ? $this->role_name['snitch'] : $this->role_name['player'];
             $pseudo_list[] = [
                 "PSEUDO" => $pseudo,
                 "ROLE" => $role
@@ -187,16 +211,20 @@ class Game
         $check = $this->toolkit->algoRand(0, $nbCheck);
         $toCheck = [];
         for($i = 0; $i < $nbCheck; $i++){
-            $toCheck[] = $selected(array_rand($selected));
+            if(!in_array($selected[array_rand($selected)], $toCheck)){
+                $toCheck[] = $selected[array_rand($selected)];
+            }
         }
         return $toCheck;
     }
-    private function turnResult(){
+    public function turnResult(){
+        $selected = $this->playerSelected();
         $result = [
-            "selected" => $this->playerSelected(),
+            "selected" => $selected,
+            "inspected" => $this->selectedPersonToBeCheck($selected),
             "action" => $this->getAction(),
             "cards" => $this->getCards()
         ];
-        return json_encode($result);
+        return $result;
     }
 }

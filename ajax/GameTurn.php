@@ -2,17 +2,10 @@
 include_once('../class/ToolKit.php');
 include_once '../class/Game.php';
 
-$game_data = (object) $_POST['game'];
-var_dump($game_data);
+$game_data = $_POST['game'];
+
 
 $game = new Game();
-$game->init($game_data->nbPlayer);
-var_dump($game);
-die();
-$game = $game->startGame(5);
+$game->copyJSON($game_data);
 
-$turn = $game;
-
-echo json_encode([
-    "turn" => $turn
-]);
+echo json_encode($game->turnResult());
