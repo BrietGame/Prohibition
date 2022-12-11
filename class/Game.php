@@ -1,5 +1,4 @@
 <?php
-include_once('./class/ToolKit.php');
 
 class Game
 {
@@ -14,16 +13,16 @@ class Game
     public $nbSnitch;
 
 
-    public function __construct(int $nbPlayer)
+    public function __construct()
     {
         $this->toolkit = new ToolKit();
-        $this->init($nbPlayer);
+        // $this->init($nbPlayer);
     }
 
     function init(int $nbPlayer)
     {
         $this->verifyNbPlayer($nbPlayer);
-        $json = $this->toolkit->getJon('./assets/data/rules.json');
+        $json = $this->toolkit->getJon('../assets/data/rules.json');
         $this->appRole = $json['app_role'];
         $this->actions = $json['actions'];
         $this->cards = $json['cards'];
