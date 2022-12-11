@@ -1,0 +1,32 @@
+body#show-roles-page {
+  background-color: $color1;
+
+  .container {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 300px;
+    width: 100%;
+    margin: 0 auto;
+
+    .affiche {
+      margin: 4rem 0;
+      img {
+        width: 100%;
+      }
+    }
+
+    h2 {
+      font-family: $font;
+      font-size: 1.5rem;
+      color: $color3;
+      text-align: center;
+      margin: 3rem 0;
+    }
+
+    a {
+      background-image: url("../img/banner-light.svg");
+    }
+  }
+}

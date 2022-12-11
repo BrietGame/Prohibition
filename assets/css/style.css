@@ -2,6 +2,12 @@
   font-family: "pixel-western";
   src: url("../font/Pixel-Western.woff") format("woff");
 }
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
 ol, li {
   list-style: none;
 }
@@ -10,17 +16,76 @@ a {
   text-decoration-line: none;
 }
 
+a.btn {
+  width: 153px;
+  height: 41px;
+  background-repeat: no-repeat;
+  font-family: "pixel-western";
+  color: #BDA07E;
+  text-align: center;
+  margin: 1rem;
+  padding: 5px;
+}
+
+a.btn-reverse {
+  width: 268px;
+  height: 68px;
+  background-repeat: no-repeat;
+  font-family: "pixel-western";
+  color: #411F13;
+  text-align: center;
+  margin: 1rem;
+  padding: 13px;
+}
+
+.traits {
+  position: relative;
+}
+.traits:before, .traits:after {
+  content: "";
+  width: 25px;
+  height: 2px;
+  background-color: #C5A981;
+  display: block;
+  position: absolute;
+}
+.traits:before {
+  top: 50%;
+  left: 5%;
+}
+.traits:after {
+  bottom: 50%;
+  right: 5%;
+}
+
 body#home-page {
-  background: url("../img/backgrounds/aigle.jpg") no-repeat;
+  background: url("../img/backgrounds/aigle.gif") no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+body#home-page:before {
+  content: "";
+  background-color: #411f13;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  mix-blend-mode: overlay;
 }
 body#home-page .container {
   display: flex;
   flex-flow: column;
-  gap: 12rem;
+  justify-content: space-between;
   align-items: center;
+  height: 100vh;
+  position: relative;
+  z-index: 999;
 }
 body#home-page .container .logo img {
   width: 100%;
+}
+body#home-page .container .start {
+  background: rgba(65, 31, 19, 0.79);
 }
 body#home-page .container .start img {
   cursor: pointer;
@@ -33,12 +98,255 @@ body#home-page .container .actions {
 }
 body#home-page .container .actions a {
   background-image: url("../img/banner.svg");
+}
+
+body#select-players-page {
+  background: url("../img/backgrounds/texture.jpg") no-repeat;
+}
+body#select-players-page .container {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  height: 100vh;
+}
+body#select-players-page .container h1 {
+  font-family: "pixel-western";
+  font-size: 1rem;
+  color: #411F13;
+  text-align: center;
+  margin-top: 3rem;
+}
+body#select-players-page .container h1:after {
+  content: "";
+  display: block;
+  width: 80%;
+  height: 2px;
+  background-color: #411F13;
+  margin: 1rem auto;
+}
+body#select-players-page .container .players {
+  display: flex;
+  flex-flow: column;
+  gap: 2rem;
+  align-items: center;
+}
+body#select-players-page .container .players a {
+  background-image: url("../img/banner.svg");
+}
+body#select-players-page .container a.back {
+  background-image: url("../img/back.svg");
   width: 154px;
   height: 41px;
   background-repeat: no-repeat;
+}
+
+body#before-roles-page {
+  background-color: #411F13;
+}
+body#before-roles-page .container {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  height: 100vh;
+}
+body#before-roles-page .container h1 {
   font-family: "pixel-western";
+  font-size: 1rem;
   color: #BDA07E;
   text-align: center;
+  margin-top: 2rem;
+}
+body#before-roles-page .container h1:after {
+  content: "";
+  display: block;
+  width: 80%;
+  height: 2px;
+  background-color: #BDA07E;
+  margin: 1rem auto;
+}
+body#before-roles-page .container .traits:before, body#before-roles-page .container .traits:after {
+  width: 75px;
+}
+body#before-roles-page .container .traits:before {
+  left: -93px;
+}
+body#before-roles-page .container .traits:after {
+  right: -93px;
+}
+body#before-roles-page .container > div {
+  max-width: 200px;
+  margin: 0 auto;
+}
+body#before-roles-page .container > div img {
+  width: 100%;
+}
+body#before-roles-page .container > div:last-of-type {
+  max-width: 250px;
+  margin-bottom: 4rem;
+}
+
+body#show-roles-page {
+  background-color: #411F13;
+}
+body#show-roles-page .container {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 300px;
+  width: 100%;
+  margin: 0 auto;
+}
+body#show-roles-page .container .affiche {
+  margin: 4rem 0;
+}
+body#show-roles-page .container .affiche img {
+  width: 100%;
+}
+body#show-roles-page .container h2 {
+  font-family: "pixel-western";
+  font-size: 1.5rem;
+  color: #BDA07E;
+  text-align: center;
+  margin: 3rem 0;
+}
+body#show-roles-page .container a {
+  background-image: url("../img/banner-light.svg");
+}
+
+body#game-page {
+  background: url("../img/backgrounds/sherrif.gif") no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+body#game-page .container {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 350px;
+  width: 100%;
+  margin: 0 auto;
+  height: 100vh;
+}
+body#game-page .container .infos {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  gap: 2rem;
+  margin-top: auto;
+  margin-bottom: 7rem;
+}
+body#game-page .container .infos .bulle {
+  background-color: #E0BD95;
+  padding: 1rem;
+}
+body#game-page .container .infos .bulle p {
+  font-family: "pixel-western";
+  color: #411F13;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+body#game-page .container .infos .guns {
+  cursor: pointer;
+  background-image: url("../img/guns.svg");
+  width: 150px;
+  height: 150px;
+  background-repeat: no-repeat;
+}
+body#game-page .container .infos .nb {
+  background-image: url("../img/backgrounds/input.svg");
+  font-family: "pixel-western";
+  color: #411F13;
+  width: 132px;
+  height: 72px;
+  background-color: transparent;
+  border: none;
+  text-align: center;
+  -moz-appearance: textfield;
+}
+body#game-page .container .infos .nb::-webkit-outer-spin-button,
+body#game-page .container .infos .nb::-webkit-inner-spin-button {
+  display: none;
+}
+body#game-page .container .infos .ok {
+  cursor: pointer;
+  background-image: url("../img/banner-2.svg");
+  width: 268px;
+  height: 68px;
+}
+body#game-page .container .actions {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+body#game-page .container .actions div {
+  display: flex;
+  gap: 1rem;
+}
+body#game-page .container .actions div a {
+  width: 50px;
+  height: 50px;
+  background-repeat: no-repeat;
+}
+body#game-page .container .actions div a.menu {
+  background-image: url("../img/icons/menu.svg");
+}
+body#game-page .container .actions div a.pause {
+  background-image: url("../img/icons/pause.svg");
+}
+body#game-page .container .actions div a.mute {
+  background-image: url("../img/icons/mute.svg");
+}
+
+body#leaderboard-page {
+  background: url("../img/backgrounds/final.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+body#leaderboard-page .container {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 350px;
+  width: 100%;
+  margin: 0 auto;
+  height: 100vh;
+}
+body#leaderboard-page .container .scores {
+  background-color: #F0E1C7;
+  width: 100%;
+}
+body#leaderboard-page .container .scores h2 {
+  font-family: "pixel-western";
+  color: #411F13;
+  text-align: center;
+}
+body#leaderboard-page .container .scores ul {
+  display: flex;
+  flex-flow: column;
+  gap: 1rem;
+}
+body#leaderboard-page .container .scores ul li {
+  font-family: "pixel-western";
+  color: #411F13;
+  text-align: center;
+}
+body#leaderboard-page .container .infos {
+  background: rgba(65, 31, 19, 0.6);
+  display: flex;
+}
+body#leaderboard-page .container .infos p {
+  font-family: "pixel-western";
+  color: #E0BD95;
+  width: 60%;
+}
+body#leaderboard-page .container .infos a {
+  display: block;
+  background-image: url("../img/gun-icon.svg");
+  width: 150px;
+  height: 150px;
+  background-repeat: no-repeat;
 }
 
 /*# sourceMappingURL=style.css.map */

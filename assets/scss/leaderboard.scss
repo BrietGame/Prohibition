@@ -1,0 +1,56 @@
+body#leaderboard-page {
+  background: url("../img/backgrounds/final.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  .container {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 350px;
+    width: 100%;
+    margin: 0 auto;
+    height: 100vh;
+
+    .scores {
+      background-color: $color4;
+      width: 100%;
+      h2 {
+        font-family: $font;
+        color: $color1;
+        text-align: center;
+      }
+
+      ul {
+        display: flex;
+        flex-flow: column;
+        gap: 1rem;
+
+        li {
+          font-family: $font;
+          color: $color1;
+          text-align: center;
+        }
+      }
+    }
+
+    .infos {
+      background: rgba(65, 31, 19, 0.6);
+      display: flex;
+
+      p {
+        font-family: $font;
+        color: $color5;
+        width: 60%;
+      }
+      a {
+        display: block;
+        background-image: url("../img/gun-icon.svg");
+        width: 150px;
+        height: 150px;
+        background-repeat: no-repeat;
+      }
+    }
+  }
+}

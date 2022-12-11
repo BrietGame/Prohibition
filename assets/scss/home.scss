@@ -1,11 +1,27 @@
 body#home-page {
-  background: url("../img/backgrounds/aigle.jpg") no-repeat;
+  background: url("../img/backgrounds/aigle.gif") no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  &:before {
+    content: '';
+    background-color: rgba(65, 31, 19, 1);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    mix-blend-mode: overlay;
+  }
 
   .container {
     display: flex;
     flex-flow: column;
-    gap: 12rem;
+    justify-content: space-between;
     align-items: center;
+    height: 100vh;
+    position: relative;
+    z-index: 999;
+
     .logo {
 
       img {
@@ -14,6 +30,7 @@ body#home-page {
     }
 
     .start {
+      background: rgba(65, 31, 19, 0.79);
 
       img {
         cursor: pointer;
@@ -27,12 +44,6 @@ body#home-page {
       justify-content: space-between;
       a {
         background-image: url("../img/banner.svg");
-        width: 154px;
-        height: 41px;
-        background-repeat: no-repeat;
-        font-family: $font;
-        color: $color3;
-        text-align: center;
       }
     }
   }

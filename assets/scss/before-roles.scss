@@ -1,0 +1,52 @@
+body#before-roles-page {
+  background-color: $color1;;
+
+  .container {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    height: 100vh;
+
+    h1 {
+      font-family: $font;
+      font-size: 1rem;
+      color: $color3;
+      text-align: center;
+      margin-top: 2rem;
+
+      &:after {
+        content: "";
+        display: block;
+        width: 80%;
+        height: 2px;
+        background-color: $color3;
+        margin: 1rem auto;
+      }
+    }
+
+    .traits {
+      &:before, &:after {
+        width: 75px;
+      }
+      &:before {
+        left: -93px;
+      }
+      &:after {
+        right: -93px;
+      }
+    }
+
+    & > div {
+      max-width: 200px;
+      margin: 0 auto;
+      img {
+        width: 100%;
+      }
+    }
+
+    & > div:last-of-type {
+      max-width: 250px;
+      margin-bottom: 4rem;
+    }
+  }
+}

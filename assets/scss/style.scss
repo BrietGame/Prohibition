@@ -8,6 +8,13 @@ $color1: #411F13;
 $color2: #A3865C;
 $color3: #BDA07E;
 $color4: #F0E1C7;
+$color5: #E0BD95;
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
 
 ol, li {
     list-style: none;
@@ -16,4 +23,51 @@ a {
   text-decoration-line: none;
 }
 
+a.btn {
+  width: 153px;
+  height: 41px;
+  background-repeat: no-repeat;
+  font-family: $font;
+  color: #BDA07E;
+  text-align: center;
+  margin: 1rem;
+  padding: 5px;
+}
+a.btn-reverse {
+  width: 268px;
+  height: 68px;
+  background-repeat: no-repeat;
+  font-family: $font;
+  color: #411F13;
+  text-align: center;
+  margin: 1rem;
+  padding: 13px;
+}
+
+.traits {
+  position: relative;
+
+  &:before, &:after {
+    content: "";
+    width: 25px;
+    height: 2px;
+    background-color: #C5A981;
+    display: block;
+    position: absolute;
+  }
+  &:before {
+    top: 50%;
+    left: 5%;
+  }
+  &:after {
+    bottom: 50%;
+    right: 5%;
+  }
+}
+
 @import "./home";
+@import "select-players";
+@import "before-roles";
+@import "show-roles";
+@import "game";
+@import "leaderboard";

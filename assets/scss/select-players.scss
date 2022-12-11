@@ -1,0 +1,44 @@
+body#select-players-page {
+  background: url("../img/backgrounds/texture.jpg") no-repeat;
+
+  .container {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    height: 100vh;
+
+    h1 {
+      font-family: $font;
+      font-size: 1rem;
+      color: $color1;
+      text-align: center;
+      margin-top: 3rem;
+
+      &:after {
+        content: "";
+        display: block;
+        width: 80%;
+        height: 2px;
+        background-color: $color1;
+        margin: 1rem auto;
+      }
+    }
+
+    .players {
+      display: flex;
+      flex-flow: column;
+      gap: 2rem;
+      align-items: center;
+      a {
+        background-image: url("../img/banner.svg");
+      }
+    }
+
+    a.back {
+      background-image: url("../img/back.svg");
+      width: 154px;
+      height: 41px;
+      background-repeat: no-repeat;
+    }
+  }
+}
