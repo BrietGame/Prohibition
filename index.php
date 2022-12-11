@@ -10,15 +10,22 @@ include_once './class/Game.php';
 // var_dump($game->pointLimit);
 // var_dump($game->getCards());
 // var_dump($game->nbSnitch);
-$nbPerson;
-if(!empty($_POST['nbPlayer'])){
-    $nbPerson = $_POST['nbPlayer'];
-    $game = new Game($nbPerson);
-}
+// $nbPerson;
+// if (!empty($_POST['nbPlayer'])) {
+//     $nbPerson = $_POST['nbPlayer'];
+//     $game = new Game($nbPerson);
+//     echo "<pre>";
+//     print_r($game);
+//     echo "</pre>";
+//     die();
+// }
+
+
 
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,24 +33,25 @@ if(!empty($_POST['nbPlayer'])){
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Document</title>
 </head>
+
 <body>
     <div id="playboard">
-        <?php 
-            if(!empty($nbPerson)){
-        ?>
-        <form action="" id="nbPlayer" method="POST">
-            <label for="nbPlayer">Nombre de joueur</label>
-            <input type="number" name="nbPlayer" min="4" max="8">
-            <input type="submit" value="Accepter">
+        <form action="" method="post">
+            <input type="radio" name="nbPlayer" id="nbPlayer" value="4">
+            <label for="nbPlayer">4</label>
+            <input type="radio" name="nbPlayer" id="nbPlayer" value="5">
+            <label for="nbPlayer">5</label>
+            <input type="radio" name="nbPlayer" id="nbPlayer" value="6">
+            <label for="nbPlayer">6</label>
+            <input type="radio" name="nbPlayer" id="nbPlayer" value="7">
+            <label for="nbPlayer">7</label>
+            <input type="radio" name="nbPlayer" id="nbPlayer" value="8">
+            <label for="nbPlayer">8</label>
+            <input type="submit" id="submit" value="Valider">
         </form>
-        <?php }  else { ?>
-        <form action="" id="count" method="POST">
-            <label for="count">Tours nb</label>
-            <input type="number" name="count" min="1" max="5">
-            <input type="submit" value="Accepter">
-        </form>
-        <?php } ?>
     </div>
-<script src="./assets/js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="./assets/js/main.js"></script>
 </body>
+
 </html>
