@@ -1,0 +1,44 @@
+@font-face {
+  font-family: "pixel-western";
+  src: url("../font/Pixel-Western.woff") format("woff");
+}
+ol, li {
+  list-style: none;
+}
+
+a {
+  text-decoration-line: none;
+}
+
+body#home-page {
+  background: url("../img/backgrounds/aigle.jpg") no-repeat;
+}
+body#home-page .container {
+  display: flex;
+  flex-flow: column;
+  gap: 12rem;
+  align-items: center;
+}
+body#home-page .container .logo img {
+  width: 100%;
+}
+body#home-page .container .start img {
+  cursor: pointer;
+  width: 100%;
+}
+body#home-page .container .actions {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+body#home-page .container .actions a {
+  background-image: url("../img/banner.svg");
+  width: 154px;
+  height: 41px;
+  background-repeat: no-repeat;
+  font-family: "pixel-western";
+  color: #BDA07E;
+  text-align: center;
+}
+
+/*# sourceMappingURL=style.css.map */

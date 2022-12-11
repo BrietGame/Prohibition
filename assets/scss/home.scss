@@ -1,0 +1,39 @@
+body#home-page {
+  background: url("../img/backgrounds/aigle.jpg") no-repeat;
+
+  .container {
+    display: flex;
+    flex-flow: column;
+    gap: 12rem;
+    align-items: center;
+    .logo {
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .start {
+
+      img {
+        cursor: pointer;
+        width: 100%;
+      }
+    }
+
+    .actions {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      a {
+        background-image: url("../img/banner.svg");
+        width: 154px;
+        height: 41px;
+        background-repeat: no-repeat;
+        font-family: $font;
+        color: $color3;
+        text-align: center;
+      }
+    }
+  }
+}

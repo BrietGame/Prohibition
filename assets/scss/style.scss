@@ -1,0 +1,19 @@
+@font-face
+{
+  font-family: "pixel-western";
+  src: url("../font/Pixel-Western.woff") format("woff");
+}
+$font: 'pixel-western';
+$color1: #411F13;
+$color2: #A3865C;
+$color3: #BDA07E;
+$color4: #F0E1C7;
+
+ol, li {
+    list-style: none;
+}
+a {
+  text-decoration-line: none;
+}
+
+@import "./home";
